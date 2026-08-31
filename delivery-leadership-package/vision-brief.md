@@ -4,7 +4,7 @@
 ## Product
 **Name:** Evergreen Insurance Quote (Phase 2 React rebuild)
 **Delivery week:** 2
-**Delivery Lead:** Samuel 
+**Delivery Lead:** Samuel Ogunyemi
 **Engineering team (represented by):** _link to your Evergreen Quote project repo_
 **GitHub Project board:** _link_
 
