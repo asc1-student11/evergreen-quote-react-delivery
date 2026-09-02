@@ -14,6 +14,9 @@ jobs:
   build:
     name: Type-check and build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: evergreen-quote-delivery
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -23,6 +26,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
+          cache-dependency-path: evergreen-quote-delivery/package-lock.json
 
       - name: Install dependencies from the lock file
         run: npm ci
