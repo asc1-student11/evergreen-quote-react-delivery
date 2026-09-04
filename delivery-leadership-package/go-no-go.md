@@ -30,7 +30,7 @@
 
 ## My call
 
-**NO-GO** The single factor driving this decision is a Red Sea I run:Typescript rejected the home rating as a string instead of the required number, and the production build was skipped.I would change the decision to go when they approve numeric rate is restored and a new CI run passes both type check and the production build. 
+**NO-GO** The single factor driving this decision is a Red CI run: Typescript rejected the home rating as a string instead of the required number, and the production build was skipped.I would change the decision to go when they approve numeric rate is restored and a new CI run passes both type check and the production build. 
 
 
 **Insert message**

@@ -22,25 +22,27 @@
 
 ## Slide 3: Two key decisions
 
-- **Decision 1:** Defer the zip code field and original pricing A/B test.
+- **Decision 1:** We were asked to add a zipcode field: Defer the zip code field and original pricing A/B test.
     - **Why it mattered:** It sounded like a small request to come out but it would have required a new pricing rules, validation, and testing. Deferring it protected the delivery we had already committed to.
 
-- **Decision 2:** Treat the red 'main' CI run and the $3,120 home-premium report as separate but potentially related issues.
-    - **Why it mattered:** I routed the investigation into the engineering owner instead of changing price and code myself. Since our branch was green but 'main' was red, wWe first had to resolved that issue and restored the Green CI before we approve the merge.
+- **Decision 2:** Users we getting incorrect quote and users were getting a bad build: Treat the red 'main' CI run and the $3,120 home-premium report as separate but potentially related issues.
+    - **Why it mattered:** I routed the investigation into the engineering owner instead of changing price and code myself. Since our branch was green but 'main' was red, We first had to resolved that issue and restored the Green CI before we approve the merge.
 
 ## Slide 4: Risks & injects
 
-- **Top risk we tracked:** The development page could appear to work even when the TypeScript check or production build failed. We addressed this by using type-checking and CI as required delivery gates.
+- **Top risk we tracked:** The development page appeared to work even when the TypeScript check or production build failed. We addressed this by using type-checking and CI as required delivery gates.
 
 - **Inject #1 (Tue):** Marketing requested a zip code field for a regional-pricing A/B test, We moved it out of this week's committed work because it would have expanded the scope significantly.
     - We also tracked the moderderate dependency flag and continued because it affected her development-only tool and the upgrade was already planned for the following week.
 
-- **Inject #2 (Wed):** Support reported a $3120 monthly home premiumwhile Maine had a Red Sea I run caused by a type error in the rate hotfix. We routed the investigation, paused the merge decision, and separated the customer issue from the CI failure until engineering could confirm whether they were connected. 
+- **Inject #2 (Wed):** Support reported a $3120 monthly home premium while Main had a Red CI run caused by a type error in the rate hotfix. We routed the investigation, paused the merge decision, and separated the customer issue from the CI failure until engineering could confirm whether they were connected. 
+
+**NO-GO** The single factor driving this decision is a Red CI run: Typescript rejected the home rating as a string instead of the required number, and the production build was skipped.I would change the decision to go when they approve numeric rate is restored and a new CI run passes both type check and the production build. 
 
 ## Slide 5: What I'd do differently next round
 - I would confirm earlier that Github recognizes the CI workflow and that runs are appearing on the expected branch.
 - I would make a price in acceptance criteria data-validation expectations clearer at kickoff.
-- I would create a visible deferred-work area The project boardso your requests can be acknowledged withoutcompeting with committed work
+- I would create a visible deferred-work area The project board so new requests can be acknowledged without competing with committed work
 - I would review the risk register and delivery gates at the end of each day.
 
 ## Q&A prep: likely questions
